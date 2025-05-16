@@ -6,6 +6,7 @@ from azure.core.credentials import AzureKeyCredential
 import yaml
 import json
 import os
+import process
 
 def load_prompts(file_path):
     with open(file_path, "r") as file:
@@ -56,4 +57,4 @@ def get_music_from_mood(mood):
     return json.loads(song_json)
 
 if __name__ == "__main__":
-    app.run(port=3001, debug=True)
+    app.run(port=(process.env.PORT || 3001), debug=True)
