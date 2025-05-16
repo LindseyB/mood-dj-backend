@@ -57,4 +57,5 @@ def get_music_from_mood(mood):
     return json.loads(song_json)
 
 if __name__ == "__main__":
-    app.run(port=(process.env.PORT || 3001), debug=True)
+    port = int(os.environ.get("PORT", 3001))
+    app.run(port=port, debug=True)
